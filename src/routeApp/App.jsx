@@ -1,15 +1,20 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
-import Users from '../components/Users'
-import Discapacity from '../components/Discapacity'
-import UserInformation from '../components/UserInformation'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from '../pages/Login'
+import RegisterUser from '../pages/RegisterUser';
+
 const App = () => {
   return (
-    <>
-      <NavBar />
-      <UserInformation />
+    <><BrowserRouter>
+        <Routes>
+          <Route path='/' element={<RegisterUser />} />
+          <Route path='/login' element={<Login />} />
+        </Routes>
+  </BrowserRouter>
+     
+      {/* <UserInformation />
       <Users />
-      <Discapacity />
+      <Discapacity /> */}
     </>
   )
 }

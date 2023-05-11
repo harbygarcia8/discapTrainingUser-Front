@@ -1,25 +1,23 @@
 import axios from "axios";
-import { urlToken, username, password } from "../apis/authenticationToken";
+import { urlToken } from "../apis/authenticationToken";
 import { urlBase } from "../apis/apiBase";
 
-const getToken = async () => {
+export async function getToken (email, password) {
     const urlAuth = urlBase + urlToken;
     const data = {
-        username: username,
-        password: password
+        email: sessionStorage.getItem('email', email),
+        password: sessionStorage.getItem('password', password),
     };
+    console.log(data)
     const headers = {
         'Content-Type': 'application/json'
     };
     try {
         const response = await axios.post(urlAuth, data, {headers});
         const access_token = response.data;
-        console.log('URL TOKEN: ', urlAuth);
         console.log(access_token);
         return access_token;
     } catch (error) {
         console.error('Error al obtener los datos:', error);
     }
-}   
-
-export default getToken;
+}

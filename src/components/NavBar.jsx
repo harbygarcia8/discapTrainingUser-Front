@@ -1,38 +1,11 @@
 import React from 'react'
-import Logo from "../assets/img/Discap_Training_logotipo.png";
 import "../styles/NavBar.scss";
 import { information } from '../service/dataTest';
 
-const NavBar = () => {
+function NavBar() {
   return (
-    <>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <img src={Logo} className="logo-dimension" />
-            </td>
-            <td className="text-right">
-              <div>
-                <ul className="text-right-ul">
-                  <li>
-                    <button className="SignIn">
-                    <a>Iniciar Sesión</a>
-                    </button>
-                    {/* <h6 className="h6-nav">
-                      <a>
-                        <i>Bienvenido </i>
-                        <i>Iniciar Sesión</i>
-                      </a>
-                    </h6> */}
-                  </li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      {information ? (
+    <div>
+        {information ? (
         <ul className="ul-nv">
           <li className="ul-nv-li">
             <a className="ul-nv-a" href="home">
@@ -61,7 +34,7 @@ const NavBar = () => {
           </li>
         </ul>
       )}
-    </>
+    </div>
   )
 }
 

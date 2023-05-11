@@ -38,7 +38,7 @@
 
 .ul-nv {
   background-color: gs.$YellowColor;
-  width: 96%;
+  width: 96.8%;
   padding-left: 40px;
   margin: 0%;
   list-style: none;
@@ -99,4 +99,26 @@
 
 .ul-nv-li:hover .ul-children {
   display: block;
+}
+
+.signUp-button {
+  background-color: var(--white);
+  outline: 1px solid;
+  outline-color: var(--hospital-blue);
+  color: var(--hospital-blue);
+}
+.signIn-button {
+  background-color: var(--hospital-blue);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  height: 50px;
+  width: 25%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+}
+
+.signIn-button a{
+  text-decoration: none;
 }

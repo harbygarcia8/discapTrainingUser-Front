@@ -24,8 +24,8 @@ export const information = {
                 "hijos": [
                     {
                         "codigo": 3088,
-                        "nombre": "Consulta Afiliado",
-                        "titulo": "Consulta Afiliado",
+                        "nombre": "Consulta Discapacitado",
+                        "titulo": "Consulta Discapacitado",
                         "accion": "Nueva",
                         "sistema": "MicrofrontEnd",
                         "padre": 3087,
@@ -34,8 +34,8 @@ export const information = {
                     },
                     {
                         "codigo": 3091,
-                        "nombre": "Consulta Expediente",
-                        "titulo": "Consulta Expediente",
+                        "nombre": "Consulta Hisoria Clínica",
+                        "titulo": "Consulta Hisoria Clínica",
                         "accion": null,
                         "sistema": "MicrofrontEnd",
                         "padre": 3087,

@@ -1,0 +1,84 @@
+@use "_global" as gs;
+@import "font";
+
+.email {
+  width: 100%;
+  
+}
+.form-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 300px;
+  justify-items: center;
+}
+.logo {
+  width: 200px;
+  margin-bottom: 40px;
+  justify-self: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form a{
+  color: var(--hospital-blue);
+  font-size: var(--sm);
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 52px;
+}
+
+.label {
+  font-size: var(--sm);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.input {
+  background-color: var(--text-input-field);
+  border: none;
+  border-radius: 8px;
+  height: 30px;
+  font-size: var(--md);
+  padding: 12px;
+  width: 93%;
+  margin-bottom: 12px;
+}
+.input-email{
+  margin-bottom: 30px;
+}
+.primary-button {
+  background-color: var(--hospital-blue);
+  border-radius: 8px;
+  border: none;
+  color: var(--white);
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+}
+.login-button {
+  margin-top: 14px;
+}
+.forgot {
+  font-size: var(--sm);
+  color: var(--hospital-blue);
+  text-decoration: none;
+  text-align: center;
+  height: 60px;
+}
+
+.forgot a {
+  color: var(--hospital-blue);
+  text-decoration: none;
+  text-align: center;
+}
+
+.signUp-button {
+  background-color: var(--white);
+  outline: 1px solid;
+  outline-color: var(--hospital-blue);
+  color: var(--hospital-blue);
+}

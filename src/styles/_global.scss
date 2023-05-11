@@ -3,3 +3,20 @@ $YellowColor: #2982e8;
 $BlackColor: #000;
 $WhiteColor: #fff;
 $DarkBlue: #1d428a;
+
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --very-ligth-grey: #c7c7c7;
+    --text-input-field: #f7f7f7;
+    --hospital-blue: #709dd1;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+  }
+  body {
+    margin: 0;
+    font-family: "Barlow", sans-serif;
+    width: 100%;
+    height: 100%;
+  }

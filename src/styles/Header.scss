@@ -1,0 +1,14 @@
+@use "_global" as gs;
+@import "font";
+
+.logo-dimension {
+  width: 250px;
+  margin-bottom: 12px;
+  margin-top: 8px;
+  align-content: center;
+}
+
+.section{
+    background-color: gs.$DarkBlue;
+}
+
