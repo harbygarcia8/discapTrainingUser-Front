@@ -1,12 +1,12 @@
 import React from 'react'
 import UserRegister from '../components/registerUser/UserRegister'
-
+import Header from '../components/Header'
 
 function RegisterUser() {
   return (
 
     <div>
-        {/* <Header /> */}
+        <Header />  
         <UserRegister/>
         {/* <Footer /> */}
     </div>

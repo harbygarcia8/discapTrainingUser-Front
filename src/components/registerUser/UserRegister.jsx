@@ -1,102 +1,110 @@
-import React from 'react'
-import {register} from '../../models/formRegister'
-
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Row from 'react-bootstrap/Row';
+import React, { useState } from 'react'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
 
 
 function UserRegister() {
+  const [registerType, setRegisterType] = useState('');
+  const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
+  const [discapacity, setDiscapacity] = useState('');
+  const [documentType, setDocumentType] = useState('');
 
-    const [validated, setValidated] = useState(false);
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidated(true);
+  const handleChangeRegisterType = (event) => {
+    setRegisterType(event.target.value);
   };
 
+  const handleChangeDiscapacity = (event) => {
+    setDiscapacity(event.target.value);
+  };
+  const handleChangeAge = (event) => {
+    setAge(event.target.value);
+  };
+  const handleChangeGender = (event) => {
+    setGender(event.target.value);
+  };
+
+  const handleChangeDocumentType = (event) => {
+    setDocumentType(event.target.value);
+  };
+
+
+
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
-      <Row className="mb-3">
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
-          <Form.Label>First name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="First name"
-            defaultValue="Mark"
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustom02">
-          <Form.Label>Last name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Last name"
-            defaultValue="Otto"
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-          <Form.Label>Username</Form.Label>
-          <InputGroup hasValidation>
-            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-            <Form.Control
-              type="text"
-              placeholder="Username"
-              aria-describedby="inputGroupPrepend"
-              required
-            />
-            <Form.Control.Feedback type="invalid">
-              Please choose a username.
-            </Form.Control.Feedback>
-          </InputGroup>
-        </Form.Group>
-      </Row>
-      <Row className="mb-3">
-        <Form.Group as={Col} md="6" controlId="validationCustom03">
-          <Form.Label>City</Form.Label>
-          <Form.Control type="text" placeholder="City" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid city.
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="3" controlId="validationCustom04">
-          <Form.Label>State</Form.Label>
-          <Form.Control type="text" placeholder="State" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid state.
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="3" controlId="validationCustom05">
-          <Form.Label>Zip</Form.Label>
-          <Form.Control type="text" placeholder="Zip" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid zip.
-          </Form.Control.Feedback>
-        </Form.Group>
-      </Row>
-      <Form.Group className="mb-3">
-        <Form.Check
-          required
-          label="Agree to terms and conditions"
-          feedback="You must agree before submitting."
-          feedbackType="invalid"
-        />
-      </Form.Group>
-      <Button type="submit">Submit form</Button>
-    </Form>
-    
+    <>
+
+      <Box xs={6} className='column' component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch' } }}>
+        <FormControl fullWidth>
+          <InputLabel id="registerType">Register Type</InputLabel>
+          <Select labelId="gender" id="selectGender" value={registerType} label="Age" onChange={handleChangeRegisterType}>
+            <MenuItem value={30}>USUARIO</MenuItem>
+            <MenuItem value={20}>ESPECIALISTA</MenuItem>
+            <MenuItem value={10}>ADMIN</MenuItem>
+          </Select>
+        </FormControl>
+        <TextField id="name" label="Name" />
+        <TextField id="lastname" label="Last name" />
+        <FormControl fullWidth>
+          <InputLabel id="documentType">Document Type</InputLabel>
+          <Select
+            labelId="documentType"
+            id="selectDocumentType"
+            value={documentType}
+            label="Age"
+            onChange={handleChangeDocumentType}
+          >
+            <MenuItem value={10}>CC</MenuItem>
+            <MenuItem value={20}>TI</MenuItem>
+            <MenuItem value={30}>PASSPORT</MenuItem>
+          </Select>
+        </FormControl>
+        <TextField type="number" id="document" label="Document" />
+        <FormControl fullWidth>
+          <InputLabel id="documentType">Gender</InputLabel>
+          <Select
+            labelId="gender"
+            id="selectGender"
+            value={gender}
+            label="Age"
+            onChange={handleChangeGender}
+          >
+            <MenuItem value={10}>MASCULINO</MenuItem>
+            <MenuItem value={20}>FEMENINO</MenuItem>
+            <MenuItem value={30}>OTRO</MenuItem>
+          </Select>
+        </FormControl>
+
+      </Box>
+      <Box xs={6} component="form" sx={{ '& > :not(style)': { m: 1, width: '50ch' } }}>
+        <TextField type="number" id="phone" label="Phone" />
+        <TextField type="email" id="email" label="Email" />
+        <TextField type="password" id="password" label="Password" />
+        <TextField type="password" id="confirmPassword" label="Confirm Password" />
+        <FormControl fullWidth>
+          <InputLabel id="documentType">Discapacity</InputLabel>
+          <Select
+            labelId="gender"
+            id="selectGender"
+            value={discapacity}
+            label="Age"
+            onChange={handleChangeDiscapacity}
+          >
+            <MenuItem value={10}>TETRAPLEJIA</MenuItem>
+            <MenuItem value={20}>PARAPLEJIA</MenuItem>
+            <MenuItem value={30}>OTRO</MenuItem>
+          </Select>
+        </FormControl>
+
+      </Box>
+
+    </>
   )
+
 }
 
 export default UserRegister

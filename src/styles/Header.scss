@@ -2,13 +2,15 @@
 @import "font";
 
 .logo-dimension {
-  width: 250px;
-  margin-bottom: 12px;
-  margin-top: 8px;
-  align-content: center;
+  padding-top: 1px;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+  margin-top: 20px;  
+  border-radius: 100px;
 }
 
 .section{
-    background-color: gs.$DarkBlue;
+    background-color: rgb(59, 109, 143);
 }
 

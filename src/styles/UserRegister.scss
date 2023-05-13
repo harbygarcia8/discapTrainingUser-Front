@@ -1,0 +1,19 @@
+@use "_global" as gs;
+@import "font";
+
+.form-container {
+    display: flex;
+
+}
+ 
+.input-container {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+
+  .column {
+    width: 50% !important;
+  }
+  
