@@ -53,7 +53,7 @@ function SignIn() {
           </p>
         </form>
         <button className="signUp-button primary-button">
-            Sign Up
+            <a href='/'>Sign Up</a>
         </button>
       </div>
     </div>

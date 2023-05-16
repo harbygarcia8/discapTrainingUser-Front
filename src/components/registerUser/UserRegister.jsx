@@ -45,15 +45,14 @@ function UserRegister() {
       discapacity: discapacity,
       active: true
     };
-    console.log(registerType, name, lastName, documentType, document. gender, phone, email, password, discapacity, true );
-    
-
-    const headers = {
-      'Content-Type': 'application/json'
-    }
-    axios.post('http://localhost:8090/api/discapTrainingUser/auth/register', data)
+    if (data !== []) {
+      axios.post('http://localhost:8090/api/discapTrainingUser/auth/register', data)
       .then((response) =>{console.log(response)})
       .catch((error) => {console.log(error)})
+    } else {
+      alert("Debe de Diligenciar todos los datos")
+    }
+    
   }
 
   return (
@@ -98,13 +97,13 @@ function UserRegister() {
             <Select labelId="discapacity" id="selectGender" value={discapacity} label="discapacity" onChange={(event) => setDiscapacity(event.target.value)}>
               <MenuItem value={"TETRAPLEJIA"}>TETRAPLEJIA</MenuItem>
               <MenuItem value={"PARAPLEJIA"}>PARAPLEJIA</MenuItem>
-              <MenuItem value={"OTRO"}>OTRO</MenuItem>
+              <MenuItem value={"NINGUNA"}>NINGUNA</MenuItem>
             </Select>
           </FormControl>
         </Box>
       </Box>
       <Stack spacing={2} direction="row">      
-      <Button type="submit" variant="contained">Crear Usuario</Button>
+      <Button type="submit" variant="contained" className="button-create-user">Crear Usuario</Button>
       </Stack>
       {/* <Modal open={open} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box >

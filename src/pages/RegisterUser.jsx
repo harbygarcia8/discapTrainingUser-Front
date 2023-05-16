@@ -1,6 +1,7 @@
 import React from 'react'
 import UserRegister from '../components/registerUser/UserRegister'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 function RegisterUser() {
   return (
@@ -8,7 +9,7 @@ function RegisterUser() {
     <div>
         <Header />  
         <UserRegister/>
-        {/* <Footer /> */}
+        <Footer />
     </div>
   )
 }

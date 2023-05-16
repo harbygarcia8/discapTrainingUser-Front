@@ -3,14 +3,105 @@
 
 .logo-dimension {
   padding-top: 1px;
-  width: 120px;
-  height: 120px;
-  margin-bottom: 20px;
-  margin-top: 20px;  
-  border-radius: 100px;
+  width: 200px;
+  height: 200px;
+  border-radius: 70px;
 }
 
 .section{
     background-color: rgb(59, 109, 143);
+    display: flex; /* Utiliza flexbox para alinear elementos horizontalmente */
+    justify-content: center; 
 }
 
+
+.text-right {
+  text-align: right;
+  width: 100%;
+  list-style: none;
+  text-decoration: none;
+}
+
+.text-right-ul {
+  list-style: none;
+}
+
+.discap-training {
+  color: #ffff;
+  font-weight: bold;
+  font-size: 22px;
+  font-family: "Barlow-Black";
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+}
+
+.h6-nav {
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.ul-nv {
+  background-color: gs.$YellowColor;
+  width: 100%;
+  padding-left: 40px;
+  margin: 0%;
+  list-style: none;
+}
+
+.ul-nv-li {
+  position: relative;
+  display: inline-block;
+  list-style: none;
+}
+
+.ul-nv-a {
+  color: gs.$blueColor;
+  text-decoration: none;
+  line-height: 30px;
+  padding: 10px 10px;
+  display: block;
+  width: 120px;
+  text-align: center;
+  font-family: "Barlow-Medium";
+}
+
+.ul-nv-a:hover {
+  background-color: gs.$blueColor;
+  color: #ffffff;
+}
+
+.ul-children {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: 9999;
+  box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+  padding-left: 0;
+  border: 1px solid #ccc;
+}
+
+.ul-children-li {
+  list-style: none;
+}
+
+.ul-children-a {
+  display: block;
+  padding: 3px 20px;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+  font-family: "Barlow-Ligth";
+  text-decoration: none;
+  background-color: gs.$WhiteColor;
+}
+
+.ul-children-a:hover {
+  background-color: #f8f8f8;
+  color: #09c2df;
+}
+
+.ul-nv-li:hover .ul-children {
+  display: block;
+}
