@@ -1,121 +1,122 @@
 import React, { useState } from "react";
+import '../../styles/UserRegister.scss'
+import axios from "axios";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
+
 
 function UserRegister() {
-  const [registerType, setRegisterType] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
-  const [discapacity, setDiscapacity] = useState("");
-  const [documentType, setDocumentType] = useState("");
 
-  const handleChangeRegisterType = (event) => {
-    setRegisterType(event.target.value);
-  };
+  const [registerType, setRegisterType] = useState('');
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [documentType, setDocumentType] = useState('')
+  const [document, setDocument] = useState('');
+  const [gender, setGender] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [discapacity, setDiscapacity] = useState('');
 
-  const handleChangeDiscapacity = (event) => {
-    setDiscapacity(event.target.value);
-  };
-  const handleChangeAge = (event) => {
-    setAge(event.target.value);
-  };
-  const handleChangeGender = (event) => {
-    setGender(event.target.value);
-  };
+  const [openModal, setOpenModal] = useState(false);
 
-  const handleChangeDocumentType = (event) => {
-    setDocumentType(event.target.value);
-  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = {
+      registerType: registerType,
+      name: name,
+      surname: lastName,
+      documentType: documentType,
+      personID: document,
+      gender: gender,
+      phone: phone,
+      email: email,
+      password: password,
+      discapacity: discapacity,
+      active: true
+    };
+    console.log(registerType, name, lastName, documentType, document. gender, phone, email, password, discapacity, true );
+    
+
+    const headers = {
+      'Content-Type': 'application/json'
+    }
+    axios.post('http://localhost:8090/api/discapTrainingUser/auth/register', data)
+      .then((response) =>{console.log(response)})
+      .catch((error) => {console.log(error)})
+  }
 
   return (
-    <>
-      <Box item xs={12}>
-        <Box
-          xs={6}
-          className="column"
-          component="form"
-          sx={{ "& > :not(style)": { m: 1, width: "50ch" } }}
-        >
+    <form onSubmit={handleSubmit}>
+      <Box item xs={6}>
+        <Box component="form" sx={{ "& > :not(style)": { m: 1, width: "50ch" } }}>
           <FormControl fullWidth>
             <InputLabel id="registerType">Register Type</InputLabel>
-            <Select
-              labelId="gender"
-              id="selectGender"
-              value={registerType}
-              label="Age"
-              onChange={handleChangeRegisterType}
-            >
-              <MenuItem value={30}>USUARIO</MenuItem>
-              <MenuItem value={20}>ESPECIALISTA</MenuItem>
-              <MenuItem value={10}>ADMIN</MenuItem>
+            <Select labelId="gender" id="selectGender" value={registerType} onChange={(event) => setRegisterType(event.target.value)}>
+              <MenuItem value={"USUARIO"}>USUARIO</MenuItem>
+              <MenuItem value={"ESPECIALISTA"}>ESPECIALISTA</MenuItem>
+              <MenuItem value={"ADMIN"}>ADMIN</MenuItem>
             </Select>
           </FormControl>
-          <TextField id="name" label="Name" />
-          <TextField id="lastname" label="Last name" />
+          <TextField id="name" label="Name" value={name} onChange={(event) => setName(event.target.value)} />
+          <TextField id="lastName" label="Last name" value={lastName} onChange={(event) => setLastName(event.target.value)} />
           <FormControl fullWidth>
             <InputLabel id="documentType">Document Type</InputLabel>
-            <Select
-              labelId="documentType"
-              id="selectDocumentType"
-              value={documentType}
-              label="Age"
-              onChange={handleChangeDocumentType}
-            >
-              <MenuItem value={10}>CC</MenuItem>
-              <MenuItem value={20}>TI</MenuItem>
-              <MenuItem value={30}>PASSPORT</MenuItem>
+            <Select labelId="documentType" id="selectDocumentType" value={documentType} label="documentType" onChange={(event) => setDocumentType(event.target.value)}>
+              <MenuItem value={"CC"}>CC</MenuItem>
+              <MenuItem value={"TI"}>TI</MenuItem>
+              <MenuItem value={"PASSPORT"}>PASSPORT</MenuItem>
             </Select>
           </FormControl>
-          <TextField type="number" id="document" label="Document" />
+          <TextField type="number" id="document" label="Document" value={document} onChange={(event) => setDocument(event.target.value)} />
           <FormControl fullWidth>
             <InputLabel id="documentType">Gender</InputLabel>
-            <Select
-              labelId="gender"
-              id="selectGender"
-              value={gender}
-              label="Age"
-              onChange={handleChangeGender}
-            >
-              <MenuItem value={10}>MASCULINO</MenuItem>
-              <MenuItem value={20}>FEMENINO</MenuItem>
-              <MenuItem value={30}>OTRO</MenuItem>
+            <Select labelId="gender" id="selectGender" value={gender} label="gender" onChange={(event) => setGender(event.target.value)}>
+              <MenuItem value={"MASCULINO"}>MASCULINO</MenuItem>
+              <MenuItem value={"FEMENINO"}>FEMENINO</MenuItem>
+              <MenuItem value={"OTRO"}>OTRO</MenuItem>
             </Select>
           </FormControl>
         </Box>
-        <Box
-          xs={6}
-          component="form"
-          sx={{ "& > :not(style)": { m: 1, width: "50ch" } }}
-        >
-          <TextField type="number" id="phone" label="Phone" />
-          <TextField type="email" id="email" label="Email" />
-          <TextField type="password" id="password" label="Password" />
-          <TextField
-            type="password"
-            id="confirmPassword"
-            label="Confirm Password"
-          />
+        <Box xs={6} component="form" sx={{ "& > :not(style)": { m: 1, width: "50ch" } }}>
+          <TextField type="number" id="phone" label="Phone" value={phone} onChange={(event) => setPhone(event.target.value)} />
+          <TextField type="email" id="email" label="Email" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <TextField type="password" id="password" label="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <TextField type="password" id="confirmPassword" label="Confirm Password" />
           <FormControl fullWidth>
-            <InputLabel id="documentType">Discapacity</InputLabel>
-            <Select
-              labelId="gender"
-              id="selectGender"
-              value={discapacity}
-              label="Age"
-              onChange={handleChangeDiscapacity}
-            >
-              <MenuItem value={10}>TETRAPLEJIA</MenuItem>
-              <MenuItem value={20}>PARAPLEJIA</MenuItem>
-              <MenuItem value={30}>OTRO</MenuItem>
+            <InputLabel id="discapacity">Discapacity</InputLabel>
+            <Select labelId="discapacity" id="selectGender" value={discapacity} label="discapacity" onChange={(event) => setDiscapacity(event.target.value)}>
+              <MenuItem value={"TETRAPLEJIA"}>TETRAPLEJIA</MenuItem>
+              <MenuItem value={"PARAPLEJIA"}>PARAPLEJIA</MenuItem>
+              <MenuItem value={"OTRO"}>OTRO</MenuItem>
             </Select>
           </FormControl>
         </Box>
       </Box>
-    </>
+      <Stack spacing={2} direction="row">      
+      <Button type="submit" variant="contained">Crear Usuario</Button>
+      </Stack>
+      {/* <Modal open={open} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+        <Box >
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+        </Box>
+      </Modal> */}
+    </form>
   );
 }
 
