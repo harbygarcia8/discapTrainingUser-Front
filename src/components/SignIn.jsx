@@ -33,7 +33,7 @@ function SignIn() {
 
         <form onSubmit={handleSubmit}>
           <input
-            type="text"
+            type="email"
             name="email"
             id="login"
             className=" input-email fadeIn second"
@@ -43,7 +43,7 @@ function SignIn() {
           />
 
           <input
-            type="text"
+            type="password"
             name="password"
             id="password"
             className=" input-email fadeIn third"
@@ -51,14 +51,6 @@ function SignIn() {
             onChange={(event) => setPassword(event.target.value)}
             placeholder="Password"
           />
-
-          {/* <button
-            type="submit"
-            className="fadeIn fourth primary-button login-button"
-          >
-            Iniciar sesión
-          </button> */}
-
           <input
             type="submit"
             onClick={handlePostRequest}
