@@ -3,7 +3,6 @@
 
 .email {
   width: 100%;
-  
 }
 .form-container {
   display: grid;
@@ -22,7 +21,7 @@
   flex-direction: column;
 }
 
-.form a{
+.form a {
   color: var(--hospital-blue);
   font-size: var(--sm);
   text-align: center;
@@ -45,7 +44,7 @@
   width: 93%;
   margin-bottom: 12px;
 }
-.input-email{
+.input-email {
   margin-bottom: 30px;
 }
 .primary-button {
