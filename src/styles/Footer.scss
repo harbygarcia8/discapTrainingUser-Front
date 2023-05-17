@@ -2,16 +2,27 @@
 @import "font";
 
 footer {
-    outline: 2px solid #3b6d8f;
-    position: fixed; /* Establece la posición fija */
-    left: 0; /* Alinea el footer a la izquierda */
-    bottom: 0; /* Alinea el footer en la parte inferior */
-    width: 100%; /* Establece el ancho al 100% del contenedor */
-    background-color: #3b6d8f; /* Define un color de fondo para el footer */
-    padding: 20px; /* Añade un espacio de relleno interno al footer */
-  }
+  outline: 2px solid #3b6d8f;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #3b6d8f;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  footer h4 {
-    text-align: center;
-    color: #ffff;
+footer h4 {
+  text-align: center;
+  color: #fff;
+  margin: 0;
+}
+
+/* Estilos adicionales para pantallas más pequeñas */
+@media (max-width: 768px) {
+  footer {
+    padding: 5px;
   }
+}
