@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
-import '../styles/Login.scss'
-import {getToken} from '../service/authToken'
+import React, { useState } from "react";
+import "../styles/loginModern.scss";
+import "../styles/Login.scss";
+import { getToken } from "../service/authToken";
 
 function SignIn() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   async function handlePostRequest() {
     try {
@@ -16,48 +17,56 @@ function SignIn() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    sessionStorage.setItem('email', email)
-    sessionStorage.setItem('password', password)
-    console.log(`Email: ${ email}, Password: ${password}`);
-  }
-  
+    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("password", password);
+    console.log(`Email: ${email}, Password: ${password}`);
+  };
+
   return (
-    <div className="email">
-      <div className="form-container">
-        <form onSubmit={handleSubmit} className="form">
-          <label htmlFor="email" className="label">Email address</label>
-          <input 
+    <div className="wrapper fadeInDown email">
+      <div id="formContent">
+        {/* <div className="form-container"> */}
+        <h2 className="active"> Sign In </h2>
+        <a href="/">
+          <h2 className="inactive underlineHover">Sign Up</h2>
+        </a>
+
+        <form onSubmit={handleSubmit}>
+          <input
             type="email"
             name="email"
-            id="email"
-            className="input input-email"
-            value={email} 
+            id="login"
+            className=" input-email fadeIn second"
+            value={email}
             onChange={(event) => setEmail(event.target.value)}
-            placeholder="email@gmail.com"
+            placeholder="Correo electronico"
           />
 
-          <label htmlFor="password" className="label">Password</label>
           <input
             type="password"
             name="password"
             id="password"
-            className="input input-email"
+            className=" input-email fadeIn third"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            placeholder="********"
+            placeholder="Password"
+          />
+          <input
+            type="submit"
+            onClick={handlePostRequest}
+            className="fadeIn fourth"
+            value="Iniciar sesión"
           />
 
-          <button type="submit" className="primary-button login-button" onClick={handlePostRequest}>Iniciar sesión</button>
-          <p className="forgot">
-            <a href="/">Forgot my password</a>
-          </p>
+          <div id="formFooter" className="forgot">
+            <a className="underlineHover" href="/">
+              Forgot my password
+            </a>
+          </div>
         </form>
-        <button className="signUp-button primary-button">
-            <a href='/'>Sign Up</a>
-        </button>
       </div>
     </div>
-  )
+  );
 }
 
-export default SignIn
+export default SignIn;
