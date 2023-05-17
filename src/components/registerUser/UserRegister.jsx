@@ -26,13 +26,13 @@ function UserRegister() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [discapacity, setDiscapacity] = useState(null);
-
   const [openModal, setOpenModal] = useState(false);
 
-  const handleTipoRegistroChange = (event) => {
-    const nuevoTipoRegistro = event.target.value;
-    setTipoRegistro(nuevoTipoRegistro);
-  };
+  const toogleChangeDiscapacity = () => {
+    if(registerType === 'USUARIO') {
+      setDiscapacity(null);
+    }
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -65,7 +65,7 @@ function UserRegister() {
         <Box component="form" sx={{ "& > :not(style)": { m: 1, width: "50ch" } }}>
           <FormControl fullWidth>
             <InputLabel id="registerType">Register Type</InputLabel>
-            <Select labelId="selectRegister" id="selectRegister" value={registerType} onChange={(event) => setRegisterType(event.target.value)}>
+            <Select label="registerType" labelId="selectRegister" id="selectRegister" value={registerType} onClick={toogleChangeDiscapacity} onChange={(event) => setRegisterType(event.target.value)}>
               <MenuItem value={"USUARIO"}>USUARIO</MenuItem>
               <MenuItem value={"ESPECIALISTA"}>ESPECIALISTA</MenuItem>
               <MenuItem value={"ADMIN"}>ADMIN</MenuItem>
