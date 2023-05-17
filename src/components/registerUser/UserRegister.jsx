@@ -15,7 +15,7 @@ import Typography from '@mui/material/Typography';
 
 function UserRegister() {
 
-  const [registerType, setRegisterType] = useState('');
+  const [registerType, setRegisterType] = useState('USUARIO');
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [documentType, setDocumentType] = useState('')
@@ -25,10 +25,14 @@ function UserRegister() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [discapacity, setDiscapacity] = useState('');
+  const [discapacity, setDiscapacity] = useState(null);
 
   const [openModal, setOpenModal] = useState(false);
 
+  const handleTipoRegistroChange = (event) => {
+    const nuevoTipoRegistro = event.target.value;
+    setTipoRegistro(nuevoTipoRegistro);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -61,7 +65,7 @@ function UserRegister() {
         <Box component="form" sx={{ "& > :not(style)": { m: 1, width: "50ch" } }}>
           <FormControl fullWidth>
             <InputLabel id="registerType">Register Type</InputLabel>
-            <Select labelId="gender" id="selectGender" value={registerType} onChange={(event) => setRegisterType(event.target.value)}>
+            <Select labelId="selectRegister" id="selectRegister" value={registerType} onChange={(event) => setRegisterType(event.target.value)}>
               <MenuItem value={"USUARIO"}>USUARIO</MenuItem>
               <MenuItem value={"ESPECIALISTA"}>ESPECIALISTA</MenuItem>
               <MenuItem value={"ADMIN"}>ADMIN</MenuItem>
@@ -92,14 +96,15 @@ function UserRegister() {
           <TextField type="email" id="email" label="Email" value={email} onChange={(event) => setEmail(event.target.value)} />
           <TextField type="password" id="password" label="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
           <TextField type="password" id="confirmPassword" label="Confirm Password" />
-          <FormControl fullWidth>
+          {registerType === 'USUARIO' && (
+            <FormControl fullWidth>
             <InputLabel id="discapacity">Discapacity</InputLabel>
             <Select labelId="discapacity" id="selectGender" value={discapacity} label="discapacity" onChange={(event) => setDiscapacity(event.target.value)}>
               <MenuItem value={"TETRAPLEJIA"}>TETRAPLEJIA</MenuItem>
               <MenuItem value={"PARAPLEJIA"}>PARAPLEJIA</MenuItem>
-              <MenuItem value={"NINGUNA"}>NINGUNA</MenuItem>
             </Select>
           </FormControl>
+          )}          
         </Box>
       </Box>
       <Stack spacing={2} direction="row">      
