@@ -137,14 +137,6 @@ function UserRegister() {
                   <MenuItem value={"OTRO"}>OTRO</MenuItem>
                 </Select>
               </FormControl>
-            </Box>
-          </Grid>
-          <Grid item xs={6}>
-            <Box
-              xs={6}
-              component="form"
-              sx={{ "& > :not(style)": { m: 1, width: "50ch" } }}
-            >
               <TextField
                 type="number"
                 id="phone"
@@ -187,14 +179,14 @@ function UserRegister() {
                 </FormControl>
               )}
             </Box>
-          </Grid>
+          </Grid>          
         </Grid>
         <Stack spacing={2} direction="row" className="frame">
           <Button type="submit" className="custom-btn btn-10 ">
             Crear Usuario
           </Button>
           <Button className="custom-btn btn-10">
-            <a href="/login">Iniciar Sesión</a>
+            <a href="/">Iniciar Sesión</a>
           </Button>
         </Stack>
 

@@ -9,11 +9,11 @@
 }
 
 .section{
-    background-color: rgb(59, 109, 143);
-    display: flex; /* Utiliza flexbox para alinear elementos horizontalmente */
-    justify-content: center; 
+  width: 100%;
+  background-color: rgb(59, 109, 143);
+  display: flex; /* Utiliza flexbox para alinear elementos horizontalmente */
+  justify-content: center; 
 }
-
 
 .text-right {
   text-align: right;

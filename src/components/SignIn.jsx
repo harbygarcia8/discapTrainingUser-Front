@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import "../styles/loginModern.scss";
 import "../styles/Login.scss";
 import { getToken } from "../service/authToken";
@@ -10,6 +11,12 @@ function SignIn() {
   async function handlePostRequest() {
     try {
       const response = await getToken();
+      if (response) {
+        window.open("/home")
+      } else {
+        alert("El inicio de sesión es incorrecto")
+      }
+      
     } catch (error) {
       console.log(error); // aquí actualizamos el estado con el mensaje de error
     }
@@ -27,7 +34,7 @@ function SignIn() {
       <div id="formContent">
         {/* <div className="form-container"> */}
         <h2 className="active"> Sign In </h2>
-        <a href="/">
+        <a href="/signUp">
           <h2 className="inactive underlineHover">Sign Up</h2>
         </a>
 
@@ -51,12 +58,15 @@ function SignIn() {
             onChange={(event) => setPassword(event.target.value)}
             placeholder="Password"
           />
-          <input
-            type="submit"
-            onClick={handlePostRequest}
-            className="fadeIn fourth"
-            value="Iniciar sesión"
-          />
+          <a href="/home">
+            <input
+              type="submit"
+              onClick={handlePostRequest}
+              className="fadeIn fourth"
+              value="Iniciar sesión"
+            />
+          </a>
+          
 
           <div id="formFooter" className="forgot">
             <a className="underlineHover" href="/">

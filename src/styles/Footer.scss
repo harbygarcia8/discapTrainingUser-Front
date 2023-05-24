@@ -3,13 +3,13 @@
 
 footer {
   outline: 2px solid #3b6d8f;
-  display: flex;
-  position: sticky;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: #3b6d8f;
   padding: 10px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -23,7 +23,6 @@ footer h4 {
 /* Estilos adicionales para pantallas más pequeñas */
 @media (max-width: 768px) {
   footer {
-    position: fixed;
     padding: 5px;
   }
 }

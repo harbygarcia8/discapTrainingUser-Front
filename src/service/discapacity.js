@@ -18,7 +18,6 @@ export async function getDiscapacity() {
   const headers = {
     'Authorization': authorization
   };
-  console.log(authorization)
   try {
     const response = await axios.get(url, {headers})
     const data = response.data; // Obtenemos los datos de la respuesta de la API

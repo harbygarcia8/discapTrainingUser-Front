@@ -18,7 +18,7 @@ function NavBar() {
               <ul className="ul-children">
                 {navMenu.hijos.map((innerMenu, index) => (
                   <li key={index} className="ul-children-li">
-                    <a className="ul-children-a" href={`${innerMenu.titulo}`}>
+                    <a className="ul-children-a" href={`${innerMenu.nombre}`}>
                       {innerMenu.titulo}
                     </a>
                   </li>

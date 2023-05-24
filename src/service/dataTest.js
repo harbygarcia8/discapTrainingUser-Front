@@ -4,13 +4,7 @@ export const information = {
         "description": "OK",
         "message": null
     },
-    "data": {
-        "codigo": 3075,
-        "nombre": "ROOT",
-        "titulo": "ROOT",
-        "accion": null,
-        "sistema": "MicrofrontEnd",
-        "padre": null,
+    "data": {       
         "orden": null,
         "hijos": [
             {
@@ -24,7 +18,7 @@ export const information = {
                 "hijos": [
                     {
                         "codigo": 3088,
-                        "nombre": "Consulta Discapacitado",
+                        "nombre": "ConsultaDiscapacitado",
                         "titulo": "Consulta Discapacitado",
                         "accion": "Nueva",
                         "sistema": "MicrofrontEnd",
@@ -34,7 +28,7 @@ export const information = {
                     },
                     {
                         "codigo": 3091,
-                        "nombre": "Consulta Hisoria Clínica",
+                        "nombre": "ConsultaHistoriaClínica",
                         "titulo": "Consulta Hisoria Clínica",
                         "accion": null,
                         "sistema": "MicrofrontEnd",
@@ -46,8 +40,8 @@ export const information = {
             },
             {
                 "codigo": 3089,
-                "nombre": "Procesos",
-                "titulo": "Procesos",
+                "nombre": "Especialistas",
+                "titulo": "Especialistas",
                 "accion": null,
                 "sistema": "MicrofrontEnd",
                 "padre": 3075,
@@ -55,8 +49,8 @@ export const information = {
                 "hijos": [
                     {
                         "codigo": 3090,
-                        "nombre": "Creación Expediente",
-                        "titulo": "Creación Expediente",
+                        "nombre": "EspecialistaAsisnado",
+                        "titulo": "Especialista Asignado",
                         "accion": null,
                         "sistema": "MicrofrontEnd",
                         "padre": 3089,
@@ -66,15 +60,26 @@ export const information = {
                 ]
             },
             {
-                "codigo": 3092,
-                "nombre": "Pruebas",
-                "titulo": "Pruebas",
+                "codigo": 3089,
+                "nombre": "Videos",
+                "titulo": "Videos",
                 "accion": null,
                 "sistema": "MicrofrontEnd",
                 "padre": 3075,
-                "orden": 3,
-                "hijos": []
-            }
+                "orden": 2,
+                "hijos": [
+                    {
+                        "codigo": 3090,
+                        "nombre": "CreaciónHistoriaClínica",
+                        "titulo": "",
+                        "accion": null,
+                        "sistema": "MicrofrontEnd",
+                        "padre": 3089,
+                        "orden": 1,
+                        "hijos": null
+                    }
+                ]
+            },
         ]
     }
 }
