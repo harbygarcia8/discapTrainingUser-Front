@@ -1,26 +1,40 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
 import "../styles/loginModern.scss";
 import "../styles/Login.scss";
 import { getToken } from "../service/authToken";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const notifySuccess = () => {
+    toast.success('Inicio de sesion Correcto, Bienvenido', {
+      position: toast.POSITION.TOP_RIGHT
+    });
+  };
+  const notifyWarning = () => {
+    toast.warning('Inicio de sesion incorrecto , vuelve a intentarlo !!.', {
+      position: toast.POSITION.TOP_CENTER
+    });
+  };
 
   async function handlePostRequest() {
     try {
       const response = await getToken();
       if (response) {
         window.open("/home")
+        notifySuccess()
       } else {
-        alert("El inicio de sesión es incorrecto")
+        notifyWarning();
       }
-      
     } catch (error) {
       console.log(error); // aquí actualizamos el estado con el mensaje de error
     }
   }
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -65,9 +79,8 @@ function SignIn() {
               className="fadeIn fourth"
               value="Iniciar sesión"
             />
+            <ToastContainer />
           </a>
-          
-
           <div id="formFooter" className="forgot">
             <a className="underlineHover" href="/">
               Forgot my password

@@ -34,9 +34,7 @@ const Header = () => {
       </tr>
     </tbody>
   </table>
-    
   </div>
-    
   )
 }
 
