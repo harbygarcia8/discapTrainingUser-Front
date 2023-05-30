@@ -13,7 +13,10 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 
-function UserRegister() {
+function UserRegister(props) {
+  const item = props.data
+  console.log(item)
+
   const [registerType, setRegisterType] = useState("USUARIO");
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -59,6 +62,7 @@ function UserRegister() {
         })
         .catch((error) => {
           console.log(error);
+          alert("Debe de Diligenciar todos los datos");
         });
     } else {
       alert("Debe de Diligenciar todos los datos");
@@ -168,14 +172,28 @@ function UserRegister() {
                   <InputLabel id="discapacity">Discapacity</InputLabel>
                   <Select
                     labelId="discapacity"
-                    id="selectGender"
+                    id="selectDiscapacity"
                     value={discapacity}
                     label="discapacity"
                     onChange={(event) => setDiscapacity(event.target.value)}
+                    
                   >
+                    {item && (
+                      <>
+                        {item.map((item) => (
+                          <MenuItem 
+                          value={item.typeDiscapacity}
+                          >
+                            {item.typeDiscapacity}
+                          </MenuItem>
+                        ))}
+                      </>
+                    )}
                     <MenuItem value={"TETRAPLEJIA"}>TETRAPLEJIA</MenuItem>
                     <MenuItem value={"PARAPLEJIA"}>PARAPLEJIA</MenuItem>
+
                   </Select>
+
                 </FormControl>
               )}
             </Box>

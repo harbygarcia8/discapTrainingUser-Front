@@ -2,7 +2,7 @@ import axios from "axios";
 import { urlToken } from "../apis/authenticationToken";
 import { urlBase } from "../apis/apiBase";
 
-export async function getToken (email, password) {
+const getToken = async (email, password) => {
     const urlAuth = urlBase + urlToken;
     const data = {
         email: sessionStorage.getItem('email', email),
@@ -20,4 +20,6 @@ export async function getToken (email, password) {
     } catch (error) {
         console.error('Error al obtener los datos:', error);
     }
-}
+};
+
+export default getToken;

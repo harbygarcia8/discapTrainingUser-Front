@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/loginModern.scss";
 import "../styles/Login.scss";
-import { getToken } from "../service/authToken";
+import getToken  from "../service/authToken";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -25,7 +25,6 @@ function SignIn() {
     try {
       const response = await getToken();
       if (response) {
-        window.open("/home")
         notifySuccess()
       } else {
         notifyWarning();
