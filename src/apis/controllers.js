@@ -4,3 +4,4 @@ export const getDiscapacities = "discapacity"
 export const getInfoUserByEmail = "users/email/";
 export const getMedicalHistory = 'MedicalHistory';
 export const getTrainingPlan = 'TrainingPlan';
+export const getDiscapUserRegisterTypeUsuario = 'DiscapUser?registerType=USUARIO';

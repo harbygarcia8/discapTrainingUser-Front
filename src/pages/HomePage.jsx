@@ -14,6 +14,7 @@ function HomePage() {
   useEffect(() => {
     async function fetchData() {
       const result = await getInfoUser();
+      console.log(result)
       setInfo(result.results);
     }
     fetchData();
