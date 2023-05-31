@@ -5,9 +5,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 function RegisterUser() {
-
-  const [infoVideo, setInfoVideo] = useState();
-
+  
   const [infoDiscapacity, setInfoDiscapacity] = useState();
   useEffect(() => {
     async function fetchData() {
