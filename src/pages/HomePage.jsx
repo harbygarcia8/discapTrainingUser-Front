@@ -24,12 +24,8 @@ function HomePage() {
     <>
         <Header />
         { info ? (info.registerType === "ADMIN" || info.registerType === "ESPECIALISTA" ? <NavBar />: null) : null}
-        { info && (
-          <>
-            <InfoUser data={info} />
-            <RouteTraining data={info}/>
-          </>
-        )}
+        { info && (<InfoUser data={info} />)}
+        { info ? (info.registerType === "USUARIO" ?  <RouteTraining data={info}/>: null) : null}
         <Footer />
     </>
   )
