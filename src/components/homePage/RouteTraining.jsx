@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from 'react'
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+
 import {getVideobyUser} from '../../service/InfoVideoByUser'
 import '../../styles/InfoUser.scss'
 
@@ -21,60 +24,40 @@ const RouteTraining = (props) => {
 
   return (
     <>
-    {infoVideo && (
       <section className="section-principal">
       <section className="section-data">
         <div className="section-header ">
           <h3>VIDEOS DE ENTRENAMIENTOS</h3>
         </div>
         <div className="mainclientData-ul">
-          <table>
-            <tbody>
-              <tr>
-              
-                <td className="td-table">
-                  <ul className="section-container">
-                    <li className="padding-bottom">
-                      <label htmlFor="ClientName">
-                        <strong>Titulo: </strong>
-                      </label>
-                      <span>{infoVideo[0].title}</span>
-                    </li>
-                    <li className="padding-bottom">
-                      <label htmlFor="ClientName">
-                        <strong>Descripción: </strong>
-                      </label>
-                      <span>{infoVideo[0].descriptionVideo}</span>
-                    </li>
-                    <li className="padding-bottom">
-                      <label htmlFor="ClientName">
-                        <strong>Discapacidad: </strong>
-                      </label>
-                      <span>{infoVideo[0].discapUser.discapacity}</span>
-                    </li>
-                    <li className="padding-bottom">
-                      <label htmlFor="ClientName">
-                        <strong>Duración video: </strong>
-                      </label>
-                      <span>{infoVideo[0].duration}</span>
-                    </li>
-                    <li className="padding-bottom">
-                      <label htmlFor="ClientName">
-                        <strong>Duración video: </strong>
-                      </label>
-                      <span>{infoVideo[0].url}</span>
-                    </li>
-                  </ul>
-                </td>
-             
-                
+        <Table responsive paging={true}>
+            <thead>
+              <tr className="title-modal">
+                <th>Titulo</th>
+                <th>Descripción</th>
+                <th>Discapacidad</th>
+                <th>Duración</th>
+                <th>Video</th>
               </tr>
+            </thead>
+            <tbody>
+              { infoVideo && (
+                <tr className="content-modal">
+                  <td>{infoVideo[0].title}</td>
+                  <td>{infoVideo[0].descriptionVideo}</td>
+                  <td>{infoVideo[0].discapUser.discapacity}</td>
+                  <td>{infoVideo[0].duration}</td>
+                  <td>{infoVideo[0].url}</td>
+                </tr>
+              )
+                
+              }
             </tbody>
-          </table>
+          </Table>
         </div>
       </section>
     </section>
-    )}
+    
     
   </>
 
