@@ -4,12 +4,12 @@ import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import InfoUser from '../components/homePage/InfoUser'
 import {getInfoUser} from '../service/infoUser'
+import {getVideobyUser} from '../service/InfoVideoByUser'
 import RouteTraining from '../components/homePage/RouteTraining'
 
 function HomePage() {
 
   const [info, setInfo] = useState();
-  const [infoVideo, setInfoVideo] = useState();
 
   useEffect(() => {
     async function fetchData() {
@@ -18,14 +18,17 @@ function HomePage() {
     }
     fetchData();
   }, []);
-
   
   return (
     <>
         <Header />
         { info ? (info.registerType === "ADMIN" || info.registerType === "ESPECIALISTA" ? <NavBar />: null) : null}
-        { info && (<InfoUser data={info} />)}
-        <RouteTraining/>
+        { info && (
+          <>
+            <InfoUser data={info} />
+            <RouteTraining data={info}/>
+          </>
+        )}
         <Footer />
     </>
   )

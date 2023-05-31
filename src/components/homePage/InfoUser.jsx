@@ -4,6 +4,7 @@ import '../../styles/InfoUser.scss'
 
 function InfoUser(props) {
   const item = props.data;
+  const id = sessionStorage.setItem('id', item.id)
   console.log(item)
 
   return (
