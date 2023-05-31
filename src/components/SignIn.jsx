@@ -12,8 +12,11 @@ function SignIn() {
 
   const notifySuccess = () => {
     toast.success('Inicio de sesion Correcto, Bienvenido', {
-      position: toast.POSITION.TOP_RIGHT
+      position: toast.POSITION.TOP_RIGHT,
     });
+    setTimeout(() => {
+      window.location.href = 'home'; // Reemplaza con la URL de la página a la que deseas redireccionar
+    }, 1000)
   };
   const notifyWarning = () => {
     toast.warning('Inicio de sesion incorrecto , vuelve a intentarlo !!.', {
