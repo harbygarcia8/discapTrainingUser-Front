@@ -9,7 +9,6 @@ import TableUserDiscapacity from '../components/userDiscapacity/TableUserDiscapa
 function UserDiscapacityPage() {
  
   const [info, setInfo] = useState();
-  const [infoVideo, setInfoVideo] = useState();
 
   useEffect(() => {
     async function fetchData() {

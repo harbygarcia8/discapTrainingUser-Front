@@ -11,15 +11,12 @@ export const information = {
                 "codigo": 3087,
                 "nombre": "Consultas",
                 "titulo": "Consultas",
-                "accion": null,
-                "sistema": "MicrofrontEnd",
-                "padre": 3075,
                 "orden": 1,
                 "hijos": [
                     {
                         "codigo": 3088,
-                        "nombre": "ConsultaDiscapacitado",
-                        "titulo": "Consulta Discapacitado",
+                        "nombre": "ConsultarUsuarios",
+                        "titulo": "Consultar todos los Usuarios",
                         "accion": "Nueva",
                         "sistema": "MicrofrontEnd",
                         "padre": 3087,
@@ -28,8 +25,8 @@ export const information = {
                     },
                     {
                         "codigo": 3091,
-                        "nombre": "ConsultaHistoriaClínica",
-                        "titulo": "Consulta Hisoria Clínica",
+                        "nombre": "ConsultarPorUsuario",
+                        "titulo": "Consulta de usuario",
                         "accion": null,
                         "sistema": "MicrofrontEnd",
                         "padre": 3087,
@@ -49,8 +46,8 @@ export const information = {
                 "hijos": [
                     {
                         "codigo": 3090,
-                        "nombre": "EspecialistaAsisnado",
-                        "titulo": "Especialista Asignado",
+                        "nombre": "Especiailstas",
+                        "titulo": "Todos los especialistas",
                         "accion": null,
                         "sistema": "MicrofrontEnd",
                         "padre": 3089,
@@ -61,8 +58,8 @@ export const information = {
             },
             {
                 "codigo": 3089,
-                "nombre": "Videos",
-                "titulo": "Videos",
+                "nombre": "Discapacidades",
+                "titulo": "Discapacidades",
                 "accion": null,
                 "sistema": "MicrofrontEnd",
                 "padre": 3075,
@@ -70,8 +67,8 @@ export const information = {
                 "hijos": [
                     {
                         "codigo": 3090,
-                        "nombre": "CreaciónHistoriaClínica",
-                        "titulo": "",
+                        "nombre": "Discapacidades",
+                        "titulo": "Discapacidades",
                         "accion": null,
                         "sistema": "MicrofrontEnd",
                         "padre": 3089,
@@ -79,7 +76,8 @@ export const information = {
                         "hijos": null
                     }
                 ]
-            },
+            }
+            
         ]
     }
 }

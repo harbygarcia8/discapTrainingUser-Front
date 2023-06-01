@@ -4,6 +4,8 @@ import Login from '../pages/Login'
 import RegisterUser from '../pages/RegisterUser';
 import HomePage from '../pages/HomePage';
 import UserDiscapacityPage from '../pages/UserDiscapacityPage'
+import SpecialistPage from '../pages/SpecialistPage';
+import DiscapacitiesPage from '../pages/DiscapacitiesPage';
 
 const App = () => {
   return (
@@ -12,13 +14,13 @@ const App = () => {
           <Route path='/signUp' element={<RegisterUser />} />
           <Route path='/' element={<Login />} />
           <Route path='/home' element={<HomePage />} />
-          <Route path='/ConsultaDiscapacitado' element={<UserDiscapacityPage />} />
+          <Route path='/ConsultarUsuarios' element={<UserDiscapacityPage />} />
+          <Route path='/Especiailstas' element={<SpecialistPage />} />
+          <Route path='/Discapacidades' element={<DiscapacitiesPage />} />
+
+          
         </Routes>
-  </BrowserRouter>
-     
-      {/* <UserInformation />
-      <Users />
-      <Discapacity /> */}
+      </BrowserRouter>
     </>
   )
 }

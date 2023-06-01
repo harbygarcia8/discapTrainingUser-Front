@@ -1,25 +1,13 @@
-import React, {useState, useEffect} from 'react'
-import { getDiscapacity } from '../service/discapacity';
+import React from 'react'
 import UserRegister from '../components/registerUser/UserRegister'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 function RegisterUser() {
-  
-  const [infoDiscapacity, setInfoDiscapacity] = useState();
-  useEffect(() => {
-    async function fetchData() {
-      const result = await getDiscapacity();
-      setInfoDiscapacity(result.results);
-    }
-    fetchData();
-  }, []);
-
-  return (
-
+    return (
     <div>
         <Header />
-        {infoDiscapacity &&(<UserRegister data={infoDiscapacity}/>)}
+        <UserRegister/>
         <Footer />
     </div>
   )

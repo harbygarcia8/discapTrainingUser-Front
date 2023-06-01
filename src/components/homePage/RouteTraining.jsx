@@ -42,7 +42,8 @@ const RouteTraining = (props) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {infoVideo && infoVideo.map((video, index) => (
+
+                {infoVideo ? infoVideo.map((video, index) => (
                   <TableRow key={index} className="table-row">
                     <TableCell className="table-cell">{video.title}</TableCell>
                     <TableCell className="table-cell">{video.descriptionVideo}</TableCell>
@@ -52,7 +53,7 @@ const RouteTraining = (props) => {
                       <a href={video.url} target="_blank" className="link-black">Click para ver video</a>
                     </TableCell>
                   </TableRow>
-                ))}
+                )):null}
               </TableBody>
             </Table>
           </TableContainer>

@@ -13,10 +13,7 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 
-function UserRegister(props) {
-  const item = props.data
-  console.log(item)
-
+function UserRegister() {
   const [registerType, setRegisterType] = useState("USUARIO");
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -176,21 +173,15 @@ function UserRegister(props) {
                     value={discapacity}
                     label="discapacity"
                     onChange={(event) => setDiscapacity(event.target.value)}
-                    
                   >
-                    {item && (
-                      <>
-                        {item.map((item) => (
-                          <MenuItem 
-                          value={item.typeDiscapacity}
-                          >
-                            {item.typeDiscapacity}
-                          </MenuItem>
-                        ))}
-                      </>
-                    )}
-                    <MenuItem value={"TETRAPLEJIA"}>TETRAPLEJIA</MenuItem>
+                    <MenuItem value={"MONOPLEJIA"}>MONOPLEJIA</MenuItem>
                     <MenuItem value={"PARAPLEJIA"}>PARAPLEJIA</MenuItem>
+                    <MenuItem value={"HEMIPLEGIA"}>HEMIPLEGIA</MenuItem>
+                    <MenuItem value={"TETRAPLEJIA"}>TETRAPLEJIA</MenuItem>
+                    <MenuItem value={"ESPINA BIFIDA"}>ESPINA BIFIDA</MenuItem>
+                    <MenuItem value={"DISTROFIA MÚSCULAR"}>DISTROFIA MÚSCULAR</MenuItem>
+                    <MenuItem value={"PARÁLISIS CEREBRAL"}>PARÁLISIS CEREBRAL</MenuItem>
+                    <MenuItem value={"AMPUTACIÓN"}>AMPUTACIÓN</MenuItem>
 
                   </Select>
 
