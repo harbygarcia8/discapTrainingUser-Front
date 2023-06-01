@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 import "../styles/NavBar.scss";
-import { information } from '../service/dataTest';
+import { information } from "../service/dataTest";
 
 function NavBar() {
   return (
     <div>
-        {information ? (
+      {information ? (
         <ul className="ul-nv">
           <li className="ul-nv-li">
             <a className="ul-nv-a" href="home">
@@ -35,7 +35,7 @@ function NavBar() {
         </ul>
       )}
     </div>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;
