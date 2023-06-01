@@ -1,17 +1,8 @@
 import React, { useState } from "react";
-import "../../styles/UserRegister.scss";
 import axios from "axios";
-import { Grid } from "@mui/material";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import InputLabel from "@mui/material/InputLabel";
-import FormControl from "@mui/material/FormControl";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
-import Typography from "@mui/material/Typography";
+import { Grid, Box, Button, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
+import { toast } from "react-toastify";
+import "../../styles/UserRegister.scss";
 
 function UserRegister() {
   const [registerType, setRegisterType] = useState("USUARIO");
@@ -24,8 +15,7 @@ function UserRegister() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [discapacity, setDiscapacity] = useState(null);
-  const [openModal, setOpenModal] = useState(false);
+  const [discapacity, setDiscapacity] = useState("");
 
   const toogleChangeDiscapacity = () => {
     if (registerType === "USUARIO") {
@@ -35,35 +25,60 @@ function UserRegister() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (!validateFields()) {
+      return;
+    }
+
     const data = {
-      registerType: registerType,
-      name: name,
+      registerType,
+      name,
       surname: lastName,
-      documentType: documentType,
+      documentType,
       personID: document,
-      gender: gender,
-      phone: phone,
-      email: email,
-      password: password,
-      discapacity: discapacity,
+      gender,
+      phone,
+      email,
+      password,
+      discapacity,
       active: true,
     };
-    if (data !== []) {
-      axios
-        .post(
-          "http://localhost:8090/api/discapTrainingUser/auth/register",
-          data
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-          alert("Debe de Diligenciar todos los datos");
-        });
-    } else {
-      alert("Debe de Diligenciar todos los datos");
+
+    axios
+      .post("http://localhost:8090/api/discapTrainingUser/auth/register", data)
+      .then((response) => {
+        console.log(response);
+        toast.success("Registro exitoso");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Error al registrar el usuario");
+      });
+  };
+
+  const validateFields = () => {
+    if (
+      !registerType ||
+      !name ||
+      !lastName ||
+      !documentType ||
+      !document ||
+      !gender ||
+      !phone ||
+      !email ||
+      !password ||
+      !confirmPassword
+    ) {
+      toast.error("Debe diligenciar todos los campos");
+      return false;
     }
+
+    if (password !== confirmPassword) {
+      toast.error("Las contraseñas no coinciden");
+      return false;
+    }
+
+    return true;
   };
 
   return (
@@ -71,11 +86,7 @@ function UserRegister() {
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
-            <Box
-              xs={6}
-              component="form"
-              sx={{ "& > :not(style)": { m: 1, width: "50ch" } }}
-            >
+            <Box xs={6} sx={{ "& > :not(style)": { m: 1, width: "50ch" } }}>
               <FormControl fullWidth>
                 <InputLabel id="registerType">Register Type</InputLabel>
                 <Select
@@ -163,6 +174,8 @@ function UserRegister() {
                 type="password"
                 id="confirmPassword"
                 label="Confirm Password"
+                value={confirmPassword}
+                onChange={(event) => setConfirmPassword(event.target.value)}
               />
               {registerType === "USUARIO" && (
                 <FormControl fullWidth>
@@ -182,33 +195,20 @@ function UserRegister() {
                     <MenuItem value={"DISTROFIA MÚSCULAR"}>DISTROFIA MÚSCULAR</MenuItem>
                     <MenuItem value={"PARÁLISIS CEREBRAL"}>PARÁLISIS CEREBRAL</MenuItem>
                     <MenuItem value={"AMPUTACIÓN"}>AMPUTACIÓN</MenuItem>
-
                   </Select>
-
                 </FormControl>
               )}
             </Box>
-          </Grid>          
+          </Grid>
         </Grid>
         <Stack spacing={2} direction="row" className="frame">
-          <Button type="submit" className="custom-btn btn-10 ">
+          <Button type="submit" className="custom-btn btn-10">
             Crear Usuario
           </Button>
           <Button className="custom-btn btn-10">
             <a href="/">Iniciar Sesión</a>
           </Button>
         </Stack>
-
-        {/* <Modal open={open} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-        <Box >
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal> */}
       </form>
     </div>
   );
