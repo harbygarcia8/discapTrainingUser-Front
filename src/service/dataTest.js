@@ -79,8 +79,8 @@ export const information = {
       },
       {
         codigo: 3089,
-        nombre: "Guia Entrenamiento",
-        titulo: "Guia Entrenamiento",
+        nombre: "Guía  Entrenamiento",
+        titulo: "Guía  Entrenamiento",
         accion: null,
         sistema: "MicrofrontEnd",
         padre: 3075,

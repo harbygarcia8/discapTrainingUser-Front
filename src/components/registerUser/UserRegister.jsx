@@ -179,16 +179,18 @@ function UserRegister() {
                     <MenuItem value={"HEMIPLEGIA"}>HEMIPLEGIA</MenuItem>
                     <MenuItem value={"TETRAPLEJIA"}>TETRAPLEJIA</MenuItem>
                     <MenuItem value={"ESPINA BIFIDA"}>ESPINA BIFIDA</MenuItem>
-                    <MenuItem value={"DISTROFIA MÚSCULAR"}>DISTROFIA MÚSCULAR</MenuItem>
-                    <MenuItem value={"PARÁLISIS CEREBRAL"}>PARÁLISIS CEREBRAL</MenuItem>
+                    <MenuItem value={"DISTROFIA MÚSCULAR"}>
+                      DISTROFIA MÚSCULAR
+                    </MenuItem>
+                    <MenuItem value={"PARÁLISIS CEREBRAL"}>
+                      PARÁLISIS CEREBRAL
+                    </MenuItem>
                     <MenuItem value={"AMPUTACIÓN"}>AMPUTACIÓN</MenuItem>
-
                   </Select>
-
                 </FormControl>
               )}
             </Box>
-          </Grid>          
+          </Grid>
         </Grid>
         <Stack spacing={2} direction="row" className="frame">
           <Button type="submit" className="custom-btn btn-10 ">

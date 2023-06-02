@@ -6,7 +6,7 @@ import HomePage from "../pages/HomePage";
 import UserDiscapacityPage from "../pages/UserDiscapacityPage";
 import SpecialistPage from "../pages/SpecialistPage";
 import DiscapacitiesPage from "../pages/DiscapacitiesPage";
-import TrainingRoutinePage from "../pages/trainingRoutinePage";
+import TrainingRoutinePage from "../pages/TrainingRoutinePage";
 
 const App = () => {
   return (
