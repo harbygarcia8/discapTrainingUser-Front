@@ -27,7 +27,7 @@ function NewVideoTraining() {
       title: title,
       url: url,
       discapUser: {
-        id: discapacity,
+        id: sessionStorage.getItem('selectedUserId'),
       },
     };
 

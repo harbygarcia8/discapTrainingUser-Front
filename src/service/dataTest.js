@@ -77,27 +77,6 @@ export const information = {
           },
         ],
       },
-      {
-        codigo: 3089,
-        nombre: "Guía  Entrenamiento",
-        titulo: "Guía  Entrenamiento",
-        accion: null,
-        sistema: "MicrofrontEnd",
-        padre: 3075,
-        orden: 2,
-        hijos: [
-          {
-            codigo: 3090,
-            nombre: "RutinaEntrenamiento",
-            titulo: "Rutina Entrenamiento",
-            accion: null,
-            sistema: "MicrofrontEnd",
-            padre: 3089,
-            orden: 1,
-            hijos: null,
-          },
-        ],
-      },
     ],
   },
 };
