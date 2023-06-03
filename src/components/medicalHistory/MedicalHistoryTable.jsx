@@ -38,6 +38,7 @@ function MedicalHistoryTable(props) {
                 <TableCell className="table-cell">
                   Especialista asignado
                 </TableCell>
+                <TableCell className="table-cell">Gestion</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
