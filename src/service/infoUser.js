@@ -27,4 +27,7 @@ export const InfoUser = async () => {
       console.log('Error al obtener los datos:', error);
     }
   }
+
+
+  
   

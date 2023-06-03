@@ -77,6 +77,27 @@ export const information = {
           },
         ],
       },
+      {
+        codigo: 3089,
+        nombre: "Historia clínica",
+        titulo: "Historia Clínica",
+        accion: null,
+        sistema: "MicrofrontEnd",
+        padre: 3075,
+        orden: 2,
+        hijos: [
+          {
+            codigo: 3090,
+            nombre: "ConsultarHistoriaClínica",
+            titulo: "Consultar historia clínica",
+            accion: null,
+            sistema: "MicrofrontEnd",
+            padre: 3089,
+            orden: 1,
+            hijos: null,
+          },
+        ],
+      },
     ],
   },
 };
