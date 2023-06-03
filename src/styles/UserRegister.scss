@@ -11,6 +11,11 @@
   flex: 0 1 16rem;
 }
 
+.required-field {
+  border: 1px solid red !important;
+}
+
+
 .form-container {
   display: flex;
 }

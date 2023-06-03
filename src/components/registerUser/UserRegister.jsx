@@ -3,6 +3,8 @@ import axios from "axios";
 import { Grid, Box, Button, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import { toast } from "react-toastify";
 import "../../styles/UserRegister.scss";
+import { isValidEmail } from '../../validation/validation';
+
 
 function UserRegister() {
   const [registerType, setRegisterType] = useState("USUARIO");
@@ -16,6 +18,7 @@ function UserRegister() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [discapacity, setDiscapacity] = useState("");
+  const isValid = isValidEmail(email);
 
   const toogleChangeDiscapacity = () => {
     if (registerType === "USUARIO") {
@@ -102,18 +105,6 @@ function UserRegister() {
                   <MenuItem value={"ADMIN"}>ADMIN</MenuItem>
                 </Select>
               </FormControl>
-              <TextField
-                id="name"
-                label="Name"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-              />
-              <TextField
-                id="lastName"
-                label="Last name"
-                value={lastName}
-                onChange={(event) => setLastName(event.target.value)}
-              />
               <FormControl fullWidth>
                 <InputLabel id="documentType">Document Type</InputLabel>
                 <Select
@@ -122,6 +113,7 @@ function UserRegister() {
                   value={documentType}
                   label="documentType"
                   onChange={(event) => setDocumentType(event.target.value)}
+                  className={!documentType ? "required-field" : ""}
                 >
                   <MenuItem value={"CC"}>CC</MenuItem>
                   <MenuItem value={"TI"}>TI</MenuItem>
@@ -134,6 +126,21 @@ function UserRegister() {
                 label="Document"
                 value={document}
                 onChange={(event) => setDocument(event.target.value)}
+                className={!document ? "required-field" : ""}
+              />
+              <TextField
+                id="name"
+                label="Name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                className={!name ? "required-field" : ""}
+              />
+              <TextField
+                id="lastName"
+                label="Last name"
+                value={lastName}
+                onChange={(event) => setLastName(event.target.value)}
+                className={!lastName ? "required-field" : ""}
               />
               <FormControl fullWidth>
                 <InputLabel id="documentType">Gender</InputLabel>
@@ -143,6 +150,7 @@ function UserRegister() {
                   value={gender}
                   label="gender"
                   onChange={(event) => setGender(event.target.value)}
+                  className={!gender ? "required-field" : ""}
                 >
                   <MenuItem value={"MASCULINO"}>MASCULINO</MenuItem>
                   <MenuItem value={"FEMENINO"}>FEMENINO</MenuItem>
@@ -155,6 +163,7 @@ function UserRegister() {
                 label="Phone"
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}
+                className={!phone ? "required-field" : ""}
               />
               <TextField
                 type="email"
@@ -162,6 +171,7 @@ function UserRegister() {
                 label="Email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
+                className={(!email || !isValid) ? "required-field" : ""}
               />
               <TextField
                 type="password"
@@ -169,6 +179,7 @@ function UserRegister() {
                 label="Password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
+                className={!password ? "required-field" : ""}
               />
               <TextField
                 type="password"
@@ -176,6 +187,7 @@ function UserRegister() {
                 label="Confirm Password"
                 value={confirmPassword}
                 onChange={(event) => setConfirmPassword(event.target.value)}
+                className={!confirmPassword ? "required-field" : ""}
               />
               {registerType === "USUARIO" && (
                 <FormControl fullWidth>
@@ -186,6 +198,7 @@ function UserRegister() {
                     value={discapacity}
                     label="discapacity"
                     onChange={(event) => setDiscapacity(event.target.value)}
+                    className={!discapacity ? "required-field" : ""}
                   >
                     <MenuItem value={"MONOPLEJIA"}>MONOPLEJIA</MenuItem>
                     <MenuItem value={"PARAPLEJIA"}>PARAPLEJIA</MenuItem>
