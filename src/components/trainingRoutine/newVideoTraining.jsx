@@ -22,11 +22,13 @@ function NewVideoTraining() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
-      description_Video: descriptionVideo,
+      descriptionVideo: descriptionVideo,
       duration: duration,
       title: title,
       url: url,
-      discapUser: discapacity,
+      discapUser: {
+        id: discapacity,
+      },
     };
 
     if (data !== []) {
@@ -74,14 +76,8 @@ function NewVideoTraining() {
           value={url}
           onChange={(event) => setUrl(event.target.value)}
         />
-        {/* <TextField
-            labelId="discapacity"
-            id="selectDiscapacity"
-            label="Discapacidades"
-            value={discapUser}
-            onChange={(event) => setDiscapUser(event.target.value)}
-          /> */}
-        <FormControl style={{ width: "50%" }}>
+
+        <FormControl style={{ width: "100%", margin: "auto 0 " }}>
           <InputLabel id="discapacity">Discapacidad</InputLabel>
 
           <Select
@@ -93,21 +89,6 @@ function NewVideoTraining() {
           >
             <MenuItem value={"1"}>MONOPLEJIA</MenuItem>
             <MenuItem value={"2"}>PARAPLEJIA</MenuItem>
-          </Select>
-        </FormControl>
-
-        {/*               
-        <FormControl fullWidth>
-          <InputLabel id="discapacity">Discapacidad</InputLabel>
-          <Select
-          label="Discapacidades"
-            labelId="discapacity"
-            id="selectDiscapacity"
-            value={discapUserId}
-            onChange={(event) => setDiscapUser(event.target.value)}
-          >
-            <MenuItem value={"1"}>MONOPLEJIA</MenuItem>
-            <MenuItem value={"2"}>PARAPLEJIA</MenuItem>
             <MenuItem value={"3"}>HEMIPLEGIA</MenuItem>
             <MenuItem value={"4"}>TETRAPLEJIA</MenuItem>
             <MenuItem value={"5"}>ESPINA BIFIDA</MenuItem>
@@ -115,7 +96,8 @@ function NewVideoTraining() {
             <MenuItem value={"7"}>PARÁLISIS CEREBRAL</MenuItem>
             <MenuItem value={"8"}>AMPUTACIÓN</MenuItem>
           </Select>
-        </FormControl> */}
+        </FormControl>
+
         <Stack className="frame">
           <Button type="submit" className="custom-btn btn-10 ">
             Agregar Video De entrenamiento
