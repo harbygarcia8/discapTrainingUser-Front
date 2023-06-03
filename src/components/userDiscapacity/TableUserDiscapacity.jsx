@@ -1,27 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-import '../../styles/TableUserDiscapacity.scss'
-import '../../styles/InfoUser.scss'
-
+import React, { useState, useEffect } from "react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Button,
+} from "@mui/material";
+import "../../styles/TableUserDiscapacity.scss";
+import "../../styles/InfoUser.scss";
+import AddCircleTwoToneIcon from "@mui/icons-material/AddCircleTwoTone";
 
 function TableUserDiscapacity(props) {
   const [data, setData] = useState(props.data || []);
   const [selectedUserId, setSelectedUserId] = useState(null);
-
 
   useEffect(() => {
     setData(props.data || []);
   }, [props.data]);
 
   const handleClickUser = (userId) => {
-    setSelectedUserId(userId)
-    sessionStorage.setItem('selectedUserId', userId);
-  }
+    setSelectedUserId(userId);
+    sessionStorage.setItem("selectedUserId", userId);
+  };
 
-  console.log(props.data)
+  console.log(props.data);
   return (
     <>
-
       <section className="section-principal">
         <section className="section-data">
           <div className="section-header ">
@@ -46,20 +53,49 @@ function TableUserDiscapacity(props) {
               <TableBody>
                 {data.map((item, index) => (
                   <TableRow key={index} className="table-row">
-                    <TableCell className="table-cell">{item.documentType}{item.id}</TableCell>
-                    <TableCell className="table-cell">{item.personID}</TableCell>
+                    <TableCell className="table-cell">
+                      {item.documentType}
+                      {item.id}
+                    </TableCell>
+                    <TableCell className="table-cell">
+                      {item.personID}
+                    </TableCell>
                     <TableCell className="table-cell">{item.name}</TableCell>
                     <TableCell className="table-cell">{item.surname}</TableCell>
                     <TableCell className="table-cell">{item.gender}</TableCell>
                     <TableCell className="table-cell">{item.phone}</TableCell>
                     <TableCell className="table-cell">{item.email}</TableCell>
-                    <TableCell className="table-cell">{item.discapacity}</TableCell>
-                    <TableCell className="table-cell">{item.active ? 'Activo' : 'Inactivo'}</TableCell>
-                    <TableCell className="table-cell"> 
-                      <a href='RutinaEntrenamiento'><button onClick={() => handleClickUser(item.id)}>Añadir rutina entrenamiento</button></a>
-                      <br/>
-                      <br/>
-                      <a href='MedicalHistory' onClick={() => handleClickUser(item.id)}><button>Añadir Historia Clinica</button></a>
+                    <TableCell className="table-cell">
+                      {item.discapacity}
+                    </TableCell>
+                    <TableCell className="table-cell">
+                      {item.active ? "Activo" : "Inactivo"}
+                    </TableCell>
+                    <TableCell className="table-cell">
+                      <a href="RutinaEntrenamiento">
+                        <Button
+                          variant="contained"
+                          size="medium"
+                          endIcon={<AddCircleTwoToneIcon />}
+                          onClick={() => handleClickUser(item.id)}
+                        >
+                          Añadir rutina entrenamiento
+                        </Button>
+                      </a>
+                      <br />
+                      <br />
+                      <a
+                        href="MedicalHistory"
+                        onClick={() => handleClickUser(item.id)}
+                      >
+                        <Button
+                          variant="contained"
+                          size="medium"
+                          endIcon={<AddCircleTwoToneIcon />}
+                        >
+                          Añadir Historia Clinica
+                        </Button>
+                      </a>
                     </TableCell>
                   </TableRow>
                 ))}
