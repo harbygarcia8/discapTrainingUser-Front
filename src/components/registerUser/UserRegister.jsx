@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import "../../styles/UserRegister.scss";
 import { isValidEmail } from '../../validation/validation';
 
-
 function UserRegister() {
   const [registerType, setRegisterType] = useState("USUARIO");
   const [name, setName] = useState("");
