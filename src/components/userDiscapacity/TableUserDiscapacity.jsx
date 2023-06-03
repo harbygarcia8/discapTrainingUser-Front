@@ -58,7 +58,8 @@ function TableUserDiscapacity(props) {
                     <TableCell className="table-cell"> 
                       <a href='RutinaEntrenamiento'><button onClick={() => handleClickUser(item.id)}>Añadir rutina entrenamiento</button></a>
                       <br/>
-                      <button>Añadir Historia Clinica</button>
+                      <br/>
+                      <a href='MedicalHistory' onClick={() => handleClickUser(item.id)}><button>Añadir Historia Clinica</button></a>
                     </TableCell>
                   </TableRow>
                 ))}

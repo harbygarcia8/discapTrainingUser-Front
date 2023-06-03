@@ -7,6 +7,7 @@ import UserDiscapacityPage from "../pages/UserDiscapacityPage";
 import SpecialistPage from "../pages/SpecialistPage";
 import DiscapacitiesPage from "../pages/DiscapacitiesPage";
 import TrainingRoutinePage from "../pages/TrainingRoutinePage";
+import MedicalHistoryFormPage from "../pages/MedicalHistoryFormPage";
 import MedicalHistoryPage from "../pages/MedicalHistoryPage";
 
 const App = () => {
@@ -20,9 +21,9 @@ const App = () => {
           <Route path="/ConsultarUsuarios" element={<UserDiscapacityPage />} />
           <Route path="/Especiailstas" element={<SpecialistPage />} />
           <Route path="/Discapacidades" element={<DiscapacitiesPage />} />
+          <Route path="/RutinaEntrenamiento"element={<TrainingRoutinePage />}/>
+          <Route path="/MedicalHistory" element={<MedicalHistoryFormPage />}/>
           <Route path="/ConsultarHistoriaClínica" element={<MedicalHistoryPage />} />
-          <Route path="/RutinaEntrenamiento" element={<TrainingRoutinePage />}
-          />
         </Routes>
       </BrowserRouter>
     </>

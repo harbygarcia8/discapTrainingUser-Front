@@ -3,7 +3,7 @@ import Header from "../components/Header"
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import { getInfoMedicalHistory } from '../service/infoDiscapUsers'
-import TableUserDiscapacity from '../components/userDiscapacity/TableUserDiscapacity'
+import MedicalHistoryTable from '../components/medicalHistory/MedicalHistoryTable'
 
 function MedicalHistoryPage() {
 
@@ -12,6 +12,7 @@ function MedicalHistoryPage() {
   useEffect(() => {
     async function fetchData() {
       const result = await getInfoMedicalHistory();
+      console.log(result)
       setInfo(result);
     }
     fetchData();
@@ -21,7 +22,7 @@ function MedicalHistoryPage() {
     <div>
     <Header />
     <NavBar />
-    <TableUserDiscapacity data={info}/>
+    <MedicalHistoryTable data={info}/>
     <Footer />
   </div>
   )
