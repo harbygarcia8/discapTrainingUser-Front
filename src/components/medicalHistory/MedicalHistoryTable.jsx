@@ -36,14 +36,6 @@ function MedicalHistoryTable(props) {
                     <TableCell className="table-cell">{item.fechaGestion}{item.id}</TableCell>
                     <TableCell className="table-cell">{item.descriptionMedicalHistory}</TableCell>
                     <TableCell className="table-cell">{item.specialist.name}</TableCell>
-
-
-                    <TableCell className="table-cell"> 
-                      <a href='RutinaEntrenamiento'><button onClick={() => handleClickUser(item.id)}>Añadir rutina entrenamiento</button></a>
-                      <br/>
-                      <br/>
-                      <a href='MedicalHistory' onClick={() => handleClickUser(item.id)}><button>Añadir Historia Clinica</button></a>
-                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

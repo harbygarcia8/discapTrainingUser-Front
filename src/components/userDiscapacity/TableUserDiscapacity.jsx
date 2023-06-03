@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Stack, Button } from '@mui/material';
 import '../../styles/TableUserDiscapacity.scss'
 import '../../styles/InfoUser.scss'
+import '../../styles/UserRegister.scss'
 
 
 function TableUserDiscapacity(props) {
@@ -55,11 +56,17 @@ function TableUserDiscapacity(props) {
                     <TableCell className="table-cell">{item.email}</TableCell>
                     <TableCell className="table-cell">{item.discapacity}</TableCell>
                     <TableCell className="table-cell">{item.active ? 'Activo' : 'Inactivo'}</TableCell>
-                    <TableCell className="table-cell"> 
-                      <a href='RutinaEntrenamiento'><button onClick={() => handleClickUser(item.id)}>Añadir rutina entrenamiento</button></a>
-                      <br/>
-                      <br/>
-                      <a href='MedicalHistory' onClick={() => handleClickUser(item.id)}><button>Añadir Historia Clinica</button></a>
+                    <TableCell className="table-cell">
+
+                    <Stack spacing={2} direction="row" className="frame">
+                    <Button type="submit" className="custom-btn btn-10" onClick={() => handleClickUser(item.id)}>
+                      <a href='RutinaEntrenamiento'>Añadir rutina entrenamiento</a>
+                    </Button>
+                    <Button className="custom-btn btn-10" onClick={() => handleClickUser(item.id)}>
+                      <a href="MedicalHistory">Añadir Historia Clinica</a>
+                    </Button>
+                    </Stack>
+                    
                     </TableCell>
                   </TableRow>
                 ))}
