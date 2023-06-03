@@ -1,22 +1,15 @@
 import React, { useState } from "react";
 import "../../styles/UserRegister.scss";
 import axios from "axios";
-import {
-  TextField,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl,
-} from "@mui/material";
-
+import { TextField } from "@mui/material";
+import { toast } from "react-toastify";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 function MedicalHistoryForm() {
   const [fechaGestion, setFechaGestion] = useState("");
   const [descriptionMedicalHistory, setDescriptionMedicalHistory] = useState("");
-  const [specialist, setSpecialistUser] = useState("");
-  const [discapUser, setDiscapUser] = useState("");
+  const isFormValid = fechaGestion !== "" && descriptionMedicalHistory !== "";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,22 +24,21 @@ function MedicalHistoryForm() {
       },
     };
 
-    if (data !== []) {
+    isFormValid ?
       axios
-        .put(
+        .post(
           "http://localhost:8091/api/discapTrainingMedicalUser/MedicalHistory",
           data
         )
         .then((response) => {
           console.log(response);
+          toast.success("Historia clínica agregada exitosamente");
         })
         .catch((error) => {
           console.log(error);
-          alert("Debe de Diligenciar todos los datos");
-        });
-    } else {
-      alert("Debe de Diligenciar todos los datos");
-    }
+          toast.error("Error al agregar la historia clínica");
+        })
+      : toast.error("Debe diligenciar todos los campos");
   };
 
   return (
@@ -57,7 +49,7 @@ function MedicalHistoryForm() {
           type="date"
           value={fechaGestion}
           onChange={(event) => setFechaGestion(event.target.value)}
-        /> <br/>
+        /> <br />
         <TextField
           id="descriptionMedicalHistory"
           label="Description Medical History"
