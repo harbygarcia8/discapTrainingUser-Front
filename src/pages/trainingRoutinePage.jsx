@@ -12,7 +12,6 @@ function TrainingRoutinePage() {
       <Header />
       <NavBar />
       <NewVideoTraining />
-      <RouteTraining />
       <Footer />
     </div>
   );

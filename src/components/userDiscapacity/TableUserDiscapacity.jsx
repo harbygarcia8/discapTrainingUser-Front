@@ -32,6 +32,7 @@ function TableUserDiscapacity(props) {
                   <TableCell className="table-cell">Email</TableCell>
                   <TableCell className="table-cell">Discapacidad</TableCell>
                   <TableCell className="table-cell">Estado</TableCell>
+                  <TableCell className="table-cell">Gestion</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -46,6 +47,7 @@ function TableUserDiscapacity(props) {
                     <TableCell className="table-cell">{item.email}</TableCell>
                     <TableCell className="table-cell">{item.discapacity}</TableCell>
                     <TableCell className="table-cell">{item.active ? 'Activo' : 'Inactivo'}</TableCell>
+                    <TableCell className="table-cell"> <a href='RutinaEntrenamiento'><button>Añadir rutina entrenamiento</button></a><br/><button>Añadir Historia Clinica</button></TableCell>
                   </TableRow>
                 ))}
               </TableBody>
