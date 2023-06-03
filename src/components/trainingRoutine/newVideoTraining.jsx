@@ -1,14 +1,8 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import "../../styles/UserRegister.scss";
 import axios from "axios";
-import {
-  TextField,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl,
-} from "@mui/material";
-
+import { TextField, Select, MenuItem, InputLabel, FormControl } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
@@ -18,6 +12,8 @@ function NewVideoTraining() {
   const [duration, setDuration] = useState("");
   const [url, setUrl] = useState("");
   const [discapacity, setDiscapUser] = useState(null);
+  const isFormValid =
+    title !== "" && descriptionVideo !== "" && duration !== "" && url !== "";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,22 +27,21 @@ function NewVideoTraining() {
       },
     };
 
-    if (data !== []) {
-      axios
+    isFormValid
+      ? axios
         .post(
           "http://localhost:8091/api/discapTrainingMedicalUser/TrainingPlan",
           data
         )
         .then((response) => {
           console.log(response);
+          toast.success("Video de entrenamiento agregado exitosamente");
         })
         .catch((error) => {
           console.log(error);
-          alert("Debe de Diligenciar todos los datos");
-        });
-    } else {
-      alert("Debe de Diligenciar todos los datos");
-    }
+          toast.error("Error al agregar el video de entrenamiento");
+        })
+      : toast.error("Debe diligenciar todos los campos");
   };
 
   return (
