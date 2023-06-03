@@ -56,6 +56,16 @@ width: 100%;
   font-family: "Barlow-Medium";
 }
 
+.logout-button {
+  background-color: gs.$blueColor;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 .ul-nv-a:hover {
   background-color: gs.$blueColor;
   color: #ffffff;

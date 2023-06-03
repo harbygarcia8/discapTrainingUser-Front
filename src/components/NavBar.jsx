@@ -34,10 +34,12 @@ function NavBar() {
                 </ul>
               </li>
             ))}
+            <li className="ul-nv-li">
+              <button className="logout-button" onClick={handleLogout}>
+                Cerrar Sesión
+              </button>
+            </li>
           </ul>
-          <button className="logout-button" onClick={handleLogout}>
-            Cerrar Sesión
-          </button>
         </div>
       ) : (
         <ul className="ul-nv">
