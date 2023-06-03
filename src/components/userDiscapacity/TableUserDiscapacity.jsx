@@ -9,20 +9,18 @@ function TableUserDiscapacity(props) {
   const [data, setData] = useState(props.data || []);
   const [selectedUserId, setSelectedUserId] = useState(null);
 
-
   useEffect(() => {
     setData(props.data || []);
   }, [props.data]);
 
   const handleClickUser = (userId) => {
-    setSelectedUserId(userId)
-    sessionStorage.setItem('selectedUserId', userId);
-  }
+    setSelectedUserId(userId);
+    sessionStorage.setItem("selectedUserId", userId);
+  };
 
-  console.log(props.data)
+  console.log(props.data);
   return (
     <>
-
       <section className="section-principal">
         <section className="section-data">
           <div className="section-header ">
@@ -47,8 +45,13 @@ function TableUserDiscapacity(props) {
               <TableBody>
                 {data.map((item, index) => (
                   <TableRow key={index} className="table-row">
-                    <TableCell className="table-cell">{item.documentType}{item.id}</TableCell>
-                    <TableCell className="table-cell">{item.personID}</TableCell>
+                    <TableCell className="table-cell">
+                      {item.documentType}
+                      {item.id}
+                    </TableCell>
+                    <TableCell className="table-cell">
+                      {item.personID}
+                    </TableCell>
                     <TableCell className="table-cell">{item.name}</TableCell>
                     <TableCell className="table-cell">{item.surname}</TableCell>
                     <TableCell className="table-cell">{item.gender}</TableCell>
