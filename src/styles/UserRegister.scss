@@ -5,16 +5,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  background: linear-gradient(rgb(252, 252, 252), rgba(119, 184, 245, 0.267));
 }
 
-.wrapper .field {
-  flex: 0 1 16rem;
-}
-
-.required-field {
-  border: 1px solid red !important;
-}
-
+// .wrapper .field {
+//   flex: 0 1 16rem;
+// }
 
 .form-container {
   display: flex;

@@ -10,7 +10,7 @@
 
 .section{
   width: 100%;
-  background-color: rgb(59, 109, 143);
+  background: linear-gradient(#fff, #56addf);
   display: flex; /* Utiliza flexbox para alinear elementos horizontalmente */
   justify-content: center; 
 }
@@ -42,7 +42,7 @@
 }
 
 .ul-nv {
-  background-color: gs.$YellowColor;
+  background: linear-gradient(gs.$YellowColor, #fff);
   width: 100%;
   padding-left: 40px;
   margin: 0%;

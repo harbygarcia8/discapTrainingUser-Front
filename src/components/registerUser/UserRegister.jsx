@@ -86,7 +86,7 @@ function UserRegister() {
   return (
     <div className="wrapper">
       <form onSubmit={handleSubmit}>
-        <Grid container spacing={2}>
+      <Grid container justifyContent="center" alignItems="center">
           <Grid item xs={6}>
             <Box xs={6} sx={{ "& > :not(style)": { m: 1, width: "50ch" } }}>
               <FormControl fullWidth>
@@ -217,7 +217,7 @@ function UserRegister() {
             </Box>
           </Grid>
         </Grid>
-        <Stack spacing={2} direction="row" className="frame">
+        <Stack justifyContent="center" alignItems="center" spacing={2} direction="row" className="frame">
           <Button type="submit" className="custom-btn btn-10">
             Crear Usuario
           </Button>
